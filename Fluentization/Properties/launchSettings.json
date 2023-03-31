@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Fluentization (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Fluentization (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

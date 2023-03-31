@@ -1,0 +1,40 @@
+﻿<Page
+    x:Class="System_Configuration.Content.Pages.General"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:System_Configuration.Content.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    NavigationCacheMode="Enabled">
+    <!--
+    Format:
+    Name, Design, Layout, Functionality
+    -->
+    <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="28,20">
+        <Grid RowSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="Startup selection" FontSize="24" FontWeight="SemiBold"/>
+            <StackPanel Grid.Row="1" Orientation="Vertical" Spacing="5">
+                <StackPanel Orientation="Vertical">
+                    <RadioButton Content="Normal startup" GroupName="StartupSel"/>
+                    <TextBlock Text="Load all device drivers and services" Foreground="{ThemeResource DescText}" Margin="28,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <RadioButton Content="Diagnostic startup" GroupName="StartupSel"/>
+                    <TextBlock Text="Load basic devices and services only" Foreground="{ThemeResource DescText}" Margin="28,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <RadioButton Content="Selective startup" GroupName="StartupSel"/>
+                    <StackPanel Orientation="Vertical" Margin="28,0,0,0">
+                        <CheckBox Content="Load system services"/>
+                        <CheckBox Content="Load startup items"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Page>

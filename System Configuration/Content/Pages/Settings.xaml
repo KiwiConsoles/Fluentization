@@ -1,0 +1,34 @@
+﻿<Page
+    x:Class="System_Configuration.Content.Pages.Settings"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:System_Configuration.Content.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    NavigationCacheMode="Enabled">
+    <!--
+    Format:
+    Name, Design, Layout, Functionality
+    -->
+    <ScrollViewer>
+        <Grid Margin="56,44,0,44">
+            <TextBlock Text="Settings" FontSize="28" OpticalMarginAlignment="TrimSideBearings" FontWeight="SemiBold" TextWrapping="Wrap"/>
+
+
+
+
+
+            <Grid Padding="34,0,34,0" x:Load="False" x:Name="x">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="5">
+                <TextBlock Text="-~Placeholders~-" TextWrapping="Wrap"/>
+                <TextBlock Text="BCD Backup setting" TextWrapping="Wrap"/>
+                <TextBlock Text="Theme changing issue?" Foreground="{ThemeResource DescText}" TextWrapping="Wrap"/>
+                <TextBlock Text="Resizing issue" TextWrapping="Wrap"/>
+                <TextBlock Text="Performance issue" TextWrapping="Wrap"/>
+                <HyperlinkButton Content="Fluentization Settings"/>
+            </StackPanel>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</Page>

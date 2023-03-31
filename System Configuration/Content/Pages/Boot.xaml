@@ -1,0 +1,110 @@
+﻿<Page
+    x:Class="System_Configuration.Content.Pages.Boot"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:System_Configuration.Content.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    NavigationCacheMode="Enabled">
+    <!--
+    Format:
+    Name, Design, Layout, Functionality
+    -->
+    <Grid>
+        <ScrollViewer x:Name="MainContent" x:DeferLoadStrategy="Lazy">
+            <Grid RowDefinitions="Auto,Auto,*" x:Name="RootGrid">
+                <Grid.ChildrenTransitions>
+                    <TransitionCollection>
+                        <RepositionThemeTransition/>
+                    </TransitionCollection>
+                </Grid.ChildrenTransitions>
+                <ListView x:Name="BootList" Padding="2,4,2,-2" ScrollViewer.VerticalScrollMode="Enabled" RightTapped="BootList_RightTapped" Grid.Row="0">
+                    <ListView.Resources>
+                        <MenuFlyout x:Name="ContextMenu">
+                            <MenuFlyout.Items>
+                                <MenuFlyoutItem Text="Set as default">
+                                    <MenuFlyoutItem.Icon>
+                                        <FontIcon Glyph="&#xe73e;"/>
+                                    </MenuFlyoutItem.Icon>
+                                </MenuFlyoutItem>
+                                <MenuFlyoutSeparator/>
+                                <MenuFlyoutItem Text="Delete">
+                                    <MenuFlyoutItem.Icon>
+                                        <FontIcon Glyph="&#xe74d;"/>
+                                    </MenuFlyoutItem.Icon>
+                                </MenuFlyoutItem>
+                                <MenuFlyoutItem Text="Rename">
+                                    <MenuFlyoutItem.Icon>
+                                        <FontIcon Glyph="&#xe8ac;"/>
+                                    </MenuFlyoutItem.Icon>
+                                </MenuFlyoutItem>
+                                <MenuFlyoutSeparator/>
+                                <MenuFlyoutItem Text="Properties">
+                                    <MenuFlyoutItem.Icon>
+                                        <FontIcon Glyph="&#xe90f;"/>
+                                    </MenuFlyoutItem.Icon>
+                                </MenuFlyoutItem>
+                            </MenuFlyout.Items>
+                        </MenuFlyout>
+                    </ListView.Resources>
+                </ListView>
+                <CommandBar HorizontalAlignment="Left" DefaultLabelPosition="Right" Grid.Row="1">
+                    <AppBarButton Label="Advanced">
+                        <AppBarButton.Icon>
+                            <FontIcon Glyph="&#xe835;"/>
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+                    <AppBarButton Label="Set as default">
+                        <AppBarButton.Icon>
+                            <FontIcon Glyph="&#xecaa;"/>
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+                    <AppBarButton Label="Add" Click="Add_Click">
+                        <AppBarButton.Icon>
+                            <FontIcon Glyph="&#xe710;" Margin="2"/>
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+                    <AppBarButton Label="Delete" Click="Delete_Click">
+                        <AppBarButton.Icon>
+                            <FontIcon Glyph="&#xe74d;"/>
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+                </CommandBar>
+                <StackPanel Padding="20,6,20,0" Grid.Row="2" Orientation="Vertical">
+                    <TextBlock Text="Boot options" Margin="0,-6,0,12" FontSize="20" FontWeight="SemiBold" Style="{ThemeResource HeaderTextBlockStyle}"/>
+                    <Grid ColumnDefinitions ="Auto,Auto">
+                        <StackPanel Orientation="Vertical" Spacing="10" Grid.Column="0">
+                            <CheckBox Content="Safe boot"/>
+                            <StackPanel Orientation="Vertical" Padding="28,-10">
+                                <RadioButton Content="Minimal"/>
+                                <RadioButton Content="Alternate shell"/>
+                                <RadioButton Content="Active directory repair"/>
+                                <RadioButton Content="Network"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical" Grid.Column="1">
+                            <CheckBox Content="No GUI Boot"/>
+                            <CheckBox Content="Boot log"/>
+                            <CheckBox Content="Base video"/>
+                            <CheckBox Content="OS Boot information"/>
+                        </StackPanel>
+                    </Grid>
+                    <StackPanel Orientation="Vertical" Padding="0,24,0,24" Visibility="Collapsed">
+                        <CheckBox Content="Safe boot"/>
+                        <CheckBox Content="No GUI Boot"/>
+                        <CheckBox Content="Boot log"/>
+                        <CheckBox Content="Base video"/>
+                        <CheckBox Content="OS Boot information"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+        <ScrollViewer x:Name="ErrorContent" x:Load="False">
+            <StackPanel Margin="35" MaxWidth="500" Orientation="Vertical" Spacing="6" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="Couldn't load boot configuration" FontSize="18" FontWeight="SemiBold"/>
+                <TextBlock x:Name="Loaddetails" TextWrapping="Wrap" Text="Details" FontWeight="SemiBold" Foreground="{ThemeResource DescText}"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

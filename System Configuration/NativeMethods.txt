@@ -1,0 +1,3 @@
+﻿HWND
+ShowWindow
+SetForegroundWindow

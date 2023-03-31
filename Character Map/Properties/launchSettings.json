@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Character Map (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Character Map (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
